@@ -15,5 +15,16 @@ namespace Test_web_app.Controllers
         {
             return View();
         }
+
+        public IActionResult Redirect()
+        {
+            return Redirect("Privacy");
+        }
+
+        [Route("testowy-route/{name}")]
+        public IActionResult Product(string name)
+        {
+            return View();
+        }
     }
 }
