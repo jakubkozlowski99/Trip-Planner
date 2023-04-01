@@ -21,5 +21,42 @@ namespace Test_web_app.Controllers
             };
             return View(product);
         }
+
+        public IActionResult ProductList()
+        {
+            var productList = new List<Product>
+            {
+                new Product
+                {
+                    Id = 1,
+                    Name = "BMW M5",
+                    Category = "Samochód",
+                    Description = "Super samochód"
+                },
+                new Product
+                {
+                    Id = 2,
+                    Name = "PEPSI",
+                    Category = "Napoje",
+                    Description = "To jest opis napoju"
+                },
+                new Product
+                {
+                    Id = 3,
+                    Name = "Storczyk",
+                    Category = "Rośliny",
+                    Description = "To jest opis rośliny"
+                }
+            };
+            return View(productList);
+        }
+
+        public IActionResult Data()
+        {
+            ViewBag.Name = "Jakub";
+            ViewData["Surname"] = "Kozłowski";
+            TempData["SecondName"] = "Brak";
+            return View();
+        }
     }
 }
