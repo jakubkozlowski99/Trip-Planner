@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Test_web_app.Models;
 
 namespace Test_web_app.Controllers
 {
@@ -9,9 +10,21 @@ namespace Test_web_app.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Add()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Add(Product body)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(body);
+            }
+
+            return RedirectToAction("Add");
         }
     }
 }
