@@ -1,10 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Test_web_app.Models;
+using Test_web_app.Services.Interfaces;
 
 namespace Test_web_app.Controllers
 {
     public class ProductController : Controller
     {
+        private readonly IWarehouseService _warehouseService;
+
+        public ProductController(IWarehouseService warehouseService)
+        {
+            _warehouseService = warehouseService;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -24,30 +32,7 @@ namespace Test_web_app.Controllers
 
         public IActionResult ProductList()
         {
-            var productList = new List<Product>
-            {
-                new Product
-                {
-                    Id = 1,
-                    Name = "BMW M5",
-                    Category = "Samochód",
-                    Description = "Super samochód"
-                },
-                new Product
-                {
-                    Id = 2,
-                    Name = "PEPSI",
-                    Category = "Napoje",
-                    Description = "To jest opis napoju"
-                },
-                new Product
-                {
-                    Id = 3,
-                    Name = "Storczyk",
-                    Category = "Rośliny",
-                    Description = "To jest opis rośliny"
-                }
-            };
+            var productList = _warehouseService.GetAll();
             return View(productList);
         }
 

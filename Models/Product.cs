@@ -4,6 +4,7 @@ namespace Test_web_app.Models
 {
     public class Product
     {
+        [Key]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Pole nazwa jest wymagane")]

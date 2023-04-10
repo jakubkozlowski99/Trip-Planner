@@ -1,7 +1,18 @@
+using Microsoft.EntityFrameworkCore;
+using Test_web_app;
+using Test_web_app.Services;
+using Test_web_app.Services.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IWarehouseService, WarehouseService>();
+
+builder.Services.AddDbContext<DbTestContext>(builder =>
+{
+    builder.UseSqlServer(@"Data Source=(localdb)\Local;Initial Catalog=DbTest;Integrated Security=True");
+});
 
 var app = builder.Build();
 

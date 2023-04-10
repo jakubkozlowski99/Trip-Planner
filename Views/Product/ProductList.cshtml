@@ -9,7 +9,7 @@
 <ul>
     @foreach(var product in Model)
     {
-        <li>@product.Id - @product.Name - @product.Category</li>
+        <li>@product.Id - @product.Name - @product.Category - @product.Description</li>
     }
 </ul>
 
@@ -18,7 +18,7 @@
     {
         if(product.Category == "Samochód")
         {
-            <li>@product.Id - @product.Name - @product.Category</li>
+            <li>@product.Id - @product.Name - @product.Category - @product.Description</li>
         }
     }
 </ul>
