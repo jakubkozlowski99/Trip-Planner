@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Test_web_app;
+using Test_web_app.Models;
 using Test_web_app.Services;
 using Test_web_app.Services.Interfaces;
 
@@ -13,6 +15,15 @@ builder.Services.AddDbContext<DbTestContext>(builder =>
 {
     builder.UseSqlServer(@"Data Source=(localdb)\Local;Initial Catalog=DbTest;Integrated Security=True");
 });
+
+builder.Services.AddIdentity<UserModel, IdentityRole>(options =>
+{
+    options.Password.RequireDigit = false;
+    options.Password.RequiredLength = 1;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireLowercase = false;
+}).AddEntityFrameworkStores<DbTestContext>();
 
 var app = builder.Build();
 
@@ -28,6 +39,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
