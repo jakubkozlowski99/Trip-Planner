@@ -36,7 +36,28 @@ namespace Test_web_app.Controllers
 
             TempData["ProductId"] = id;
 
-            return RedirectToAction("Add");
+            return RedirectToAction("List");
+        }
+
+        [HttpGet]
+        public IActionResult List()
+        {
+            var products = _warehouseService.GetAll();
+            return View(products);
+        }
+
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            var product = _warehouseService.Get(id);
+            return View(product);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            _warehouseService.Delete(id);
+            return RedirectToAction("List");
         }
     }
 }

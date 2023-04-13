@@ -12,6 +12,21 @@ namespace Test_web_app.Services
             _context = context;
         }
 
+        public int Delete(int id)
+        {
+            var product = _context.Products.Find(id);
+            _context.Products.Remove(product);
+            _context.SaveChanges();
+            return id;
+        }
+
+        public Product Get(int id)
+        {
+            var product = _context.Products.Find(id);
+
+            return product;
+        }
+
         public List<Product> GetAll()
         {
             var products = _context.Products.ToList();
