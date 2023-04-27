@@ -1,15 +1,20 @@
 ﻿@model Test_web_app.Models.Login
 
 
-<h2>Logowanie</h2>
 
     <body>
-
-        @using(Html.BeginForm("Login", "Account", FormMethod.Post)){
-        @Html.ValidationSummary();
-        <span>Login: </span>@Html.TextBoxFor(x => x.UserName)
-        <span>Hasło: </span>@Html.PasswordFor(x => x.Password)
-
-        <button type="submit">Zaloguj</button>
-}
+        <div class="login-panel container">
+            
+            @using(Html.BeginForm("Login", "Account", FormMethod.Post)){
+                <h2 style="text-align:center; font-weight: 500; margin-top: 10px; opacity: 0.8;">Zaloguj się</h2>
+                @Html.ValidationSummary();
+                <span style="padding: 12px;"></span>
+                <div class="paneltxt">Login: </div>
+                <div class="box">@Html.TextBoxFor(x => x.UserName, new {@class = "txtbox"})</div>
+                <div class="paneltxt">Hasło: </div>
+                <div class="box">@Html.PasswordFor(x => x.Password, new {@class = "txtbox"})</div>
+                <div style="margin-top: 50px;"></div>
+                <button class="submit" type="submit">Zaloguj</button>
+            }
+        </div>
     </body>

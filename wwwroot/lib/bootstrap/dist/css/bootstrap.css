@@ -3871,6 +3871,7 @@ textarea.form-control-lg {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  font-family: Montserrat;
 }
 
 .nav-link {
@@ -3962,13 +3963,17 @@ textarea.form-control-lg {
 }
 
 .navbar {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+    background: url(../../../../img/background-login.jpg);
+    background-size: cover;
+    filter: blur(50px);
+    transform: scale(3);
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 .navbar > .container,
 .navbar > .container-fluid,
