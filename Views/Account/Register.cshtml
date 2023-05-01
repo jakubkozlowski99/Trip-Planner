@@ -1,12 +1,22 @@
 ﻿@model Test_web_app.Models.Register
 
-<h2>Rejestracja</h2>
 
-@using(Html.BeginForm("Register", "Account", FormMethod.Post)){
-    @Html.ValidationSummary();
-    <span>Login: </span>@Html.TextBoxFor(x => x.UserName)
-    <span>Email: </span>@Html.TextBoxFor(x => x.Email)
-    <span>Hasło: </span>@Html.PasswordFor(x => x.Password)
-
-    <button type="submit">Rejestruj</button>
+<body>
+    <div class="panel register container">
+        
+        @using(Html.BeginForm("Register", "Account", FormMethod.Post)){
+            <h2 style="text-align:center; font-weight: 500; margin-top: 10px; opacity: 0.8;">Rejestracja</h2>
+            @Html.ValidationSummary();
+            <span style="padding: 12px;"></span>
+            <div class="paneltxt">Login: </div>
+            <div class="box">@Html.TextBoxFor(x => x.UserName, new {@class = "txtbox"})</div>
+            <div class="paneltxt">Email: </div>
+            <div class="box">@Html.TextBoxFor(x => x.Email, new {@class = "txtbox"})</div>
+            <div class="paneltxt">Hasło: </div>
+            <div class="box">@Html.PasswordFor(x => x.Password, new {@class = "txtbox"})</div>
+            <div style="margin-top: 50px;"></div>
+            <button class="submit" type="submit">Rejestruj</button>
+        }
+    </div>
+</body>
 }
