@@ -97,17 +97,48 @@ div.line {
     outline: none;
 }
 
-ul {
-}
-li {
-    float: left;
+.navbar-header {
+    font-family: Montserrat;
 }
 
-li a {
-    display: block;
-    color: white;
+.brand {
+    color: #F8D267;
     text-align: center;
-    padding: 16px;
+    padding-top: 12.5px;
+    margin-right: 25px;
+    margin-left: 20px;
     text-decoration: none;
-    color: whitesmoke;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+    .brand:hover {
+        color: #F8D267;
+    }
+
+
+.topnav {
+    overflow: hidden;
+}
+
+    .topnav a {
+        float: left;
+        text-align: center;
+        display: block;
+        color: lightgrey;
+        padding-right: 5px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-right: 15px;
+        text-decoration: none;
+        --bs-text-opacity: 1;
+        font-weight: 500;
+    }
+
+    .topnav a:hover {
+        color: whitesmoke;
+    }
+
+.topnav-right{
+    float: right;
 }
