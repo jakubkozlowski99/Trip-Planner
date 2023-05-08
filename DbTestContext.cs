@@ -10,6 +10,8 @@ namespace Test_web_app
 
         public DbSet<Product> Products { get; set; }
 
+        public DbSet<Trip> Trips { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

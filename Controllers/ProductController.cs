@@ -7,10 +7,12 @@ namespace Test_web_app.Controllers
     public class ProductController : Controller
     {
         private readonly IWarehouseService _warehouseService;
+        private readonly IPlannerService _plannerService;
 
-        public ProductController(IWarehouseService warehouseService)
+        public ProductController(IWarehouseService warehouseService, IPlannerService plannerService)
         {
             _warehouseService = warehouseService;
+            _plannerService = plannerService;
         }
 
         public IActionResult Index()

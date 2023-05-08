@@ -13,7 +13,7 @@
         <nav style="background-color: #222023; box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);">
                 <a class="brand" style= "float:left;" asp-area="" asp-controller="Home" asp-action="Index">Trip Planner</a>
             <div class="topnav">
-                <a asp-area="" asp-controller="Warehouse" asp-action="Add">Dodaj produkt</a>
+                <a asp-area="" asp-controller="Planner" asp-action="Add">Planer</a>
                 <a asp-area="" asp-controller="Warehouse" asp-action="List">Lista produktów</a>
                   <div class="topnav-right">
                     @if (!User.Identity.IsAuthenticated)

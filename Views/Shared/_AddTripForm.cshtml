@@ -1,0 +1,13 @@
+﻿@model Test_web_app.Models.Trip
+
+@using (Html.BeginForm("Add", "Planner", FormMethod.Post))
+{
+    @Html.ValidationSummary()
+
+    <span>Nazwa: </span>@Html.TextBoxFor(x => x.Title)
+    <span>Opis: </span>@Html.TextBoxFor(x => x.Description)
+    
+
+    <button type="submit">Dodaj wycieczkę</button>
+}
+
