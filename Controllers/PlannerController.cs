@@ -37,6 +37,7 @@ namespace Test_web_app.Controllers
         public IActionResult Add(Trip body)
         {
             body.User = User.Identity.Name;
+            if (body.Description == null) body.Description = "";
             if (!ModelState.IsValid)
             {
                 return View(body);

@@ -6,6 +6,7 @@ namespace Test_web_app.Models
     {
         [Key]
         public int Id { get; set; }
+        [MaxLength(15)]
         public string Title { get; set; }
 
         public string? Description { get; set; }

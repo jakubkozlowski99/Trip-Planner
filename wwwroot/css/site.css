@@ -142,3 +142,28 @@ div.line {
 .topnav-right{
     float: right;
 }
+
+div.trip-block {
+    height: 200px;
+    width: 250px;
+    align-content: center;
+    background-color: #222023;
+    opacity: 0.9;
+    box-shadow: 0 6px 12px 0 rgba(0,0,0,.1);
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 10px;
+    font-family: Montserrat;
+    display: inline-block;
+    justify-content: center;
+    margin: 50px;
+}
+
+div.trip-text {
+    font-size: 20px;
+    font-weight: 500;
+    color: #F8D267;
+    text-align:center;
+    margin-top:10px;
+}
+

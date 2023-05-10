@@ -2,6 +2,12 @@
 @{
     ViewData["Title"] = "List";
 }
-
-<h1>List</h1>
+<div class="trip-blocks-area">
+    @foreach(var trip in Model)
+    {
+        <div class="trip-block">
+            <div class="trip-text">@trip.Title</div>
+        </div>
+    }
+</div>
 
