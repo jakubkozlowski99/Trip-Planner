@@ -45,5 +45,11 @@ namespace Test_web_app.Controllers
             _plannerService.Save(body);
             return RedirectToAction("List");
         }
+
+        public IActionResult Delete(string id)
+        {
+            _plannerService.Delete(Int32.Parse(id));
+            return RedirectToAction("List");
+        }
     }
 }
