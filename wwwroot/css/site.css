@@ -152,11 +152,11 @@ div.trip-block {
     box-shadow: 0 6px 12px 0 rgba(0,0,0,.1);
     border-radius: 5px;
     box-sizing: border-box;
-    padding: 10px;
     font-family: Montserrat;
     display: inline-block;
     justify-content: center;
     margin: 50px;
+    position: relative;
 }
 
 div.trip-text {
@@ -164,9 +164,36 @@ div.trip-text {
     font-weight: 500;
     color: #F8D267;
     text-align:center;
-    margin-top:10px;
+    margin-top:20px;
 }
 
-span.trashcan{
+span.trashcan {
     font-size: 30px;
 }
+
+button.delete-btn {
+    background-color: #222023;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border: none;
+    color:red;
+    transition-duration: 0.2s;
+}
+
+button.delete-btn:hover {
+    color: darkred;
+}
+
+[type="date"] {
+    background: #fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png) 97% 50% no-repeat;
+}
+
+    [type="date"]::-webkit-inner-spin-button {
+        display: none;
+    }
+
+    [type="date"]::-webkit-calendar-picker-indicator {
+        opacity: 0;
+    }

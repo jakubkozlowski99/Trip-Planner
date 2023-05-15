@@ -34,9 +34,11 @@ namespace Test_web_app.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(Trip body)
+        public IActionResult Add(Trip body, DateTime startDate, DateTime endDate)
         {
             body.User = User.Identity.Name;
+            body.StartDate = startDate;
+            body.EndDate = endDate;
             if (body.Description == null) body.Description = "";
             if (!ModelState.IsValid)
             {
