@@ -40,6 +40,11 @@ div.login {
     width: 300px;
 }
 
+div.add-trip{
+    height: 500px;
+    width: 400px;
+}
+
 div.register {
     height: 450px;
     width: 300px;
@@ -197,3 +202,9 @@ button.delete-btn:hover {
     [type="date"]::-webkit-calendar-picker-indicator {
         opacity: 0;
     }
+
+.basic-txt{
+    text-align:center;
+    margin-top: 25px;
+    color:whitesmoke;
+}

@@ -22,7 +22,7 @@ namespace Test_web_app.Models
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if(EndDate.Value <= StartDate.Value)
+            if(EndDate.Value <= StartDate.Value && EndDate.Value != null && StartDate.Value != null)
             {
                 yield return new ValidationResult("Data końcowa musi być późniejsza od początkowej");
             }

@@ -14,6 +14,13 @@
         {
             <div class="trip-block">
                 <div class="trip-text">@trip.Title</div>
+            @{
+                var startDate = trip.StartDate.ToString();
+                var endDate = trip.EndDate.ToString();
+                startDate = startDate.Remove(startDate.Length - 9, 9);
+                endDate = endDate.Remove(endDate.Length - 9, 9);
+                <div class="basic-txt">@startDate - @endDate</div>
+            }
             @using(Html.BeginForm("Delete", "Planner", FormMethod.Post))
             {
                 <button name="id" class="delete-btn" type="submit" value="@trip.Id">
