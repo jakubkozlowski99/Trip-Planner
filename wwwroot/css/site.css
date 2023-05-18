@@ -40,8 +40,10 @@ div.login {
     width: 300px;
 }
 
-div.add-trip{
-    height: 500px;
+div.add-trip {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: 700px;
     width: 400px;
 }
 
@@ -94,12 +96,38 @@ div.line {
     border-bottom: 1px solid #878787;
     opacity: 0.8;
     text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
 
+.txtbox-add {
+    width: 300px;
+}
 
+.txtarea-add {
+    width:300px;
+    height:200px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    resize: none;
+    border-radius: 5px;
+    padding: 12px 20px;
 }
 
 .txtbox:focus {
     outline: none;
+}
+
+.date {
+    background: #F8D267;
+    border: none;
+    border-bottom: 1px solid #878787;
+    opacity:0.8;
+    text-align:center;
+    margin:15px;
+    margin-top:15px;
 }
 
 .navbar-header {
