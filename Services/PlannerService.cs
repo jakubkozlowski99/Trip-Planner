@@ -35,5 +35,15 @@ namespace Test_web_app.Services
             _context.Add(trip);
             return _context.SaveChanges();
         }
+
+        public void SaveDay(Day day) 
+        {
+            _context.Add(day);
+        }
+
+        public void SaveActivity(Activity activity)
+        {
+            _context.Add(activity);
+        }
     }
 }

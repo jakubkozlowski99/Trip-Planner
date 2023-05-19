@@ -2,7 +2,7 @@
 
 namespace Test_web_app.Models
 {
-    public class Trip :IValidatableObject
+    public class Trip : IValidatableObject
     {
         [Key]
         public int Id { get; set; }

@@ -38,6 +38,7 @@ div.panel {
 div.login {
     height: 400px;
     width: 300px;
+    overflow: auto;
 }
 
 div.add-trip {
@@ -45,6 +46,7 @@ div.add-trip {
     margin-bottom: 50px;
     height: 700px;
     width: 400px;
+    overflow: auto;
 }
 
 div.register {
