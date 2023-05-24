@@ -12,6 +12,10 @@ namespace Test_web_app
 
         public DbSet<Trip> Trips { get; set; }
 
+        public DbSet<Day> Days { get; set; }
+
+        public DbSet<Activity> Activities { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

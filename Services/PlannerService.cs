@@ -1,5 +1,7 @@
 ﻿using Test_web_app.Models;
 using Test_web_app.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Test_web_app.Services
 {
@@ -14,6 +16,14 @@ namespace Test_web_app.Services
         public void Delete(int id)
         {
             var trip = _context.Trips.Find(id);
+            var days = _context.Days.Where(d => d.TripId == id).ToList();
+
+            foreach (Day day in days)
+            {
+                _context.Activities.RemoveRange(_context.Activities.Where(a => a.DayId == day.Id));
+            }
+
+            _context.Days.RemoveRange(_context.Days.Where(d => d.TripId == id));
             _context.Trips.Remove(trip);
             _context.SaveChanges();
         }
@@ -24,9 +34,9 @@ namespace Test_web_app.Services
             return trip;
         }
 
-        public List<Trip> GetAll()
+        public List<Trip> GetAll(string userName)
         {
-            var trips = _context.Trips.ToList();
+            var trips = _context.Trips.Where(t => t.User == userName).ToList();
             return trips;
         }
 
@@ -39,11 +49,13 @@ namespace Test_web_app.Services
         public void SaveDay(Day day) 
         {
             _context.Add(day);
+            _context.SaveChanges();
         }
 
         public void SaveActivity(Activity activity)
         {
             _context.Add(activity);
+            _context.SaveChanges();
         }
     }
 }

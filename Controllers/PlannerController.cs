@@ -23,7 +23,7 @@ namespace Test_web_app.Controllers
         [HttpGet]
         public IActionResult List()
         {
-            var trips = _plannerService.GetAll();
+            var trips = _plannerService.GetAll(User.Identity.Name);
             return View(trips);
         }
 
@@ -39,12 +39,23 @@ namespace Test_web_app.Controllers
             body.User = User.Identity.Name;
             body.StartDate = startDate;
             body.EndDate = endDate;
+
+            int daysAmount = (endDate - startDate).Days;
+
             if (body.Description == null) body.Description = "";
             if (!ModelState.IsValid)
             {
                 return View(body);
             }
             _plannerService.Save(body);
+            
+            for(int i=0; i<=daysAmount; i++)
+            {
+                Day day = new Day();
+                day.TripId = body.Id;
+                _plannerService.SaveDay(day);
+            }
+
             return RedirectToAction("List");
         }
 
@@ -52,6 +63,11 @@ namespace Test_web_app.Controllers
         {
             _plannerService.Delete(Int32.Parse(id));
             return RedirectToAction("List");
+        }
+
+        public IActionResult EditDay(string id)
+        {
+            return View();
         }
     }
 }

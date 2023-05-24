@@ -6,5 +6,8 @@ namespace Test_web_app.Models
     {
         [Key]
         public int Id { get; set; }
+
+        public int TripId { get; set; }
+
     }
 }

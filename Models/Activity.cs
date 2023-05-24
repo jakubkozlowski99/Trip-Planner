@@ -8,5 +8,6 @@ namespace Test_web_app.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public int Cost { get; set; }
+        public int DayId { get; set; }
     }
 }
