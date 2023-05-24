@@ -29,6 +29,12 @@
             }
             </div>
         }
+        <div class="trip-block">
+            @using(Html.BeginForm("Add", "Planner", FormMethod.Get))
+            {
+                <button class="add-btn">+</button>
+            }
+        </div>
     </div>
 </html>
 

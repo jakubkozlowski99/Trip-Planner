@@ -238,3 +238,21 @@ button.delete-btn:hover {
     margin-top: 25px;
     color:whitesmoke;
 }
+
+.add-btn {
+    height: 200px;
+    width: 250px;
+    background-color: #222023;
+    opacity: 0.9;
+    box-shadow: 0 6px 12px 0 rgba(0,0,0,.1);
+    border-radius: 5px;
+    font-family: Montserrat;
+    font-size: 50px;
+    color:white;
+    transition-duration: 0.2s;
+    position: relative;
+}
+
+    .add-btn:hover {
+        color: #F8D267;
+    }

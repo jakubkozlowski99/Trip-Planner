@@ -9,5 +9,7 @@ namespace Test_web_app.Models
 
         public int TripId { get; set; }
 
+        public int DayNumber { get; set; }
+
     }
 }

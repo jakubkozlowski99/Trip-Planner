@@ -53,6 +53,7 @@ namespace Test_web_app.Controllers
             {
                 Day day = new Day();
                 day.TripId = body.Id;
+                day.DayNumber = i + 1;
                 _plannerService.SaveDay(day);
             }
 
@@ -65,7 +66,7 @@ namespace Test_web_app.Controllers
             return RedirectToAction("List");
         }
 
-        public IActionResult EditDay(string id)
+        public IActionResult EditDay(int dayNumber)
         {
             return View();
         }
