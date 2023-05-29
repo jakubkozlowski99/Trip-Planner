@@ -1,21 +1,21 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  background-image: url(../img/background-login.jpg);
-  background-size: cover;
+    background-image: url(../img/background-login.jpg);
+    background-size: cover;
 }
 
 div.panel {
@@ -55,7 +55,7 @@ div.register {
 }
 
 div.paneltxt {
-    text-align:center;
+    text-align: center;
 }
 
 div.box {
@@ -74,7 +74,7 @@ button.submit {
     width: 50%;
     height: 30px;
     background-image: linear-gradient(to bottom right, #F8D267, #FCD56C);
-    opacity:0.8;
+    opacity: 0.8;
     border: none;
     box-shadow: 0 6px 12px 0 rgba(0,0,0,.1);
     transition-duration: 0.2s;
@@ -108,8 +108,8 @@ div.line {
 }
 
 .txtarea-add {
-    width:300px;
-    height:200px;
+    width: 300px;
+    height: 200px;
     position: relative;
     left: 50%;
     transform: translate(-50%, 0);
@@ -126,10 +126,10 @@ div.line {
     background: #F8D267;
     border: none;
     border-bottom: 1px solid #878787;
-    opacity:0.8;
-    text-align:center;
-    margin:15px;
-    margin-top:15px;
+    opacity: 0.8;
+    text-align: center;
+    margin: 15px;
+    margin-top: 15px;
 }
 
 .navbar-header {
@@ -170,26 +170,23 @@ div.line {
         font-weight: 500;
     }
 
-    .topnav a:hover {
-        color: whitesmoke;
-    }
+        .topnav a:hover {
+            color: whitesmoke;
+        }
 
-.topnav-right{
+.topnav-right {
     float: right;
 }
 
 div.trip-block {
     height: 200px;
     width: 250px;
-    align-content: center;
     background-color: #222023;
     opacity: 0.9;
     box-shadow: 0 6px 12px 0 rgba(0,0,0,.1);
     border-radius: 5px;
-    box-sizing: border-box;
     font-family: Montserrat;
     display: inline-block;
-    justify-content: center;
     margin: 50px;
     position: relative;
 }
@@ -198,8 +195,8 @@ div.trip-text {
     font-size: 20px;
     font-weight: 500;
     color: #F8D267;
-    text-align:center;
-    margin-top:20px;
+    text-align: center;
+    padding-top: 28px;
 }
 
 span.trashcan {
@@ -213,13 +210,13 @@ button.delete-btn {
     left: 50%;
     transform: translate(-50%, 0);
     border: none;
-    color:red;
+    color: red;
     transition-duration: 0.2s;
 }
 
-button.delete-btn:hover {
-    color: darkred;
-}
+    button.delete-btn:hover {
+        color: darkred;
+    }
 
 [type="date"] {
     background: #fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png) 97% 50% no-repeat;
@@ -233,26 +230,34 @@ button.delete-btn:hover {
         opacity: 0;
     }
 
-.basic-txt{
-    text-align:center;
+.basic-txt {
+    text-align: center;
     margin-top: 25px;
-    color:whitesmoke;
+    color: whitesmoke;
 }
 
 .add-btn {
     height: 200px;
     width: 250px;
-    background-color: #222023;
-    opacity: 0.9;
-    box-shadow: 0 6px 12px 0 rgba(0,0,0,.1);
-    border-radius: 5px;
+    background-color: transparent;
     font-family: Montserrat;
     font-size: 50px;
-    color:white;
+    color: white;
     transition-duration: 0.2s;
-    position: relative;
+    position: absolute;
+    border: unset;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
     .add-btn:hover {
         color: #F8D267;
     }
+
+.add-btn-block {
+    height: 100%;
+    position:relative;
+    display: flex;
+    align-items:center;
+}

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="~/Test_web_app.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
 </head>
-    <div class="trip-blocks-area">
+    <div>
         @foreach(var trip in Model)
         {
             <div class="trip-block">
@@ -21,19 +21,24 @@
                 endDate = endDate.Remove(endDate.Length - 9, 9);
                 <div class="basic-txt">@startDate - @endDate</div>
             }
-            @using(Html.BeginForm("Delete", "Planner", FormMethod.Post))
-            {
-                <button name="id" class="delete-btn" type="submit" value="@trip.Id">
-                    <span class="trashcan bi bi-trash"></span>
-                </button>
-            }
+                <div>
+                    @using(Html.BeginForm("Delete", "Planner", FormMethod.Post))
+                    {
+                        <button name="id" class="delete-btn" type="submit" value="@trip.Id">
+                            <span class="trashcan bi bi-trash"></span>
+                        </button>
+                    }
+                </div>
+
             </div>
         }
         <div class="trip-block">
-            @using(Html.BeginForm("Add", "Planner", FormMethod.Get))
-            {
-                <button class="add-btn">+</button>
-            }
+            <div class="add-btn-block">
+                @using(Html.BeginForm("Add", "Planner", FormMethod.Get))
+                {
+                    <button class="add-btn">+</button>
+                }
+            </div>
         </div>
     </div>
 </html>

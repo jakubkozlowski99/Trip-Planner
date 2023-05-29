@@ -66,6 +66,12 @@ namespace Test_web_app.Controllers
             return RedirectToAction("List");
         }
 
+        public IActionResult Edit(string id)
+        {
+            var trip = _plannerService.Get(Int32.Parse(id));
+            return View(trip);
+        }
+
         public IActionResult EditDay(int dayNumber)
         {
             return View();
