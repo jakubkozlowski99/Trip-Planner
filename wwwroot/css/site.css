@@ -207,16 +207,30 @@ button.delete-btn {
     background-color: #222023;
     position: absolute;
     bottom: 15px;
-    left: 50%;
-    transform: translate(-50%, 0);
+    left: 70%;
+    transform: translate(-70%, 0);
     border: none;
     color: red;
     transition-duration: 0.2s;
 }
-
     button.delete-btn:hover {
         color: darkred;
     }
+
+.edit-btn {
+    background-color: #222023;
+    position: absolute;
+    bottom: 23px;
+    left: 30%;
+    transform: translate(-30%, 0);
+    border: none;
+    color: darkgrey;
+    transition-duration: 0.2s;
+}
+.edit-btn:hover {
+    color: white;
+}
+
 
 [type="date"] {
     background: #fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png) 97% 50% no-repeat;
@@ -242,7 +256,7 @@ button.delete-btn {
     background-color: transparent;
     font-family: Montserrat;
     font-size: 50px;
-    color: white;
+    color: darkgrey;
     transition-duration: 0.2s;
     position: absolute;
     border: unset;
@@ -252,7 +266,7 @@ button.delete-btn {
 }
 
     .add-btn:hover {
-        color: #F8D267;
+        color: white;
     }
 
 .add-btn-block {

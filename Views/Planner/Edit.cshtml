@@ -3,5 +3,43 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+@{
+    var startDate = Model.StartDate.ToString();
+    var endDate = Model.EndDate.ToString();
+    var startYear = startDate.Remove(0, 6);
+    startYear = startYear.Remove(4, 9);
+    var startMonth = startDate.Remove(0, 3);
+    startMonth = startMonth.Remove(2, 14);
+    var startDay = startDate.Remove(2, 17);
+    startDate = startYear + "-" + startMonth + "-" + startDay;
+
+    var endYear = endDate.Remove(0, 6);
+    endYear = endYear.Remove(4, 9);
+    var endMonth = endDate.Remove(0, 3);
+    endMonth = endMonth.Remove(2, 14);
+    var endDay = endDate.Remove(2, 17);
+    endDate = endYear + "-" + endMonth + "-" + endDay;
+    }
+
+<body>
+    <div class="panel add-trip container">
+        @using (Html.BeginForm("Add", "Planner", FormMethod.Post))
+        {
+            <h2 style="text-align:center; font-weight: 500; margin-top: 10px; opacity: 0.8;">Planowanie wycieczki</h2>
+            @Html.ValidationSummary()
+            <div style="padding: 12px;"></div>
+            <div class="paneltxt">Tytuł: </div>
+            <div class="box">@Html.TextBoxFor(x => x.Title, new {@class = "txtbox txtbox-add", @value = @Model.Title})</div>
+            <div style="padding: 12px;"></div>
+            <div class="paneltxt">Opis: </div>
+            <div class="box">@Html.TextAreaFor(x => x.Description, new {@class = "txtarea-add", @value= @Model.Description})</div>
+            <div style="padding: 12px;"></div>
+            <div class="paneltxt">Data początkowa - Data końcowa </div>
+            <input class="date" type="date" name="startDate" id="startDate" value=@startDate>
+            <input class="date" type="date" name="endDate" id="endDate" value=@endDate>
+            <div style="margin-top: 50px;"></div>
+            <button class="submit" type="submit">Zapisz</button>
+        }
+    </div>
+</body>
 
