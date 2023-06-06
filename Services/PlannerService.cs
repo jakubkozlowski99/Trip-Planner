@@ -57,5 +57,15 @@ namespace Test_web_app.Services
             _context.Add(activity);
             _context.SaveChanges();
         }
+
+        public void Edit(Trip newTrip, int id)
+        {
+            var trip = _context.Trips.Find(id);
+            trip.Title = newTrip.Title;
+            trip.StartDate = newTrip.StartDate;
+            trip.EndDate = newTrip.EndDate;
+            trip.Description = newTrip.Description;
+            _context.SaveChanges();
+        }
     }
 }

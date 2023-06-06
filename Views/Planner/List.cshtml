@@ -29,7 +29,7 @@
                             <span class="trashcan bi bi-trash"></span>
                         </button>
                     }
-                    @using(Html.BeginForm("Edit", "Planner", FormMethod.Post))
+                    @using(Html.BeginForm("Edit", "Planner", FormMethod.Get))
                     {
                         <button name="id" class="edit-btn" type="submit" value="@trip.Id">
                             <span class="fa fa-pencil" style="font-size: 30px;"></span>

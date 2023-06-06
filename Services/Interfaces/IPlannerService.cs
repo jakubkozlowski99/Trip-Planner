@@ -10,5 +10,6 @@ namespace Test_web_app.Services.Interfaces
         void Delete(int id);
         public void SaveDay(Day day);
         public void SaveActivity(Activity activity);
+        public void Edit(Trip trip, int id);
     }
 }

@@ -66,10 +66,28 @@ namespace Test_web_app.Controllers
             return RedirectToAction("List");
         }
 
+        [HttpGet]
         public IActionResult Edit(string id)
         {
             var trip = _plannerService.Get(Int32.Parse(id));
             return View(trip);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Trip body, string id, DateTime startDate, DateTime endDate)
+        {
+            body.User = User.Identity.Name;
+            body.StartDate = startDate;
+            body.EndDate = endDate;
+            int daysAmount = (endDate - startDate).Days;
+
+            if (body.Description == null) body.Description = "";
+            if (!ModelState.IsValid)
+            {
+                return View(body);
+            }
+            _plannerService.Edit(body, Int32.Parse(id));
+            return RedirectToAction("List");
         }
 
         public IActionResult EditDay(int dayNumber)
