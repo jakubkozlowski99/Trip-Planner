@@ -65,6 +65,27 @@ namespace Test_web_app.Services
             trip.StartDate = newTrip.StartDate;
             trip.EndDate = newTrip.EndDate;
             trip.Description = newTrip.Description;
+
+            var days = _context.Days.Where(d => d.TripId == id).ToList();
+            foreach(Day day in days)
+            {
+
+            }
+
+            _context.SaveChanges();
+        }
+
+        public List<Day> GetTripDays(int id)
+        {
+            var days = _context.Days.Where(d => d.TripId == id).ToList();
+
+            return days;
+        }
+
+        public void DeleteDay(int id)
+        {
+            var day = _context.Days.Find(id);
+            _context.Days.Remove(day);
             _context.SaveChanges();
         }
     }

@@ -76,10 +76,31 @@ namespace Test_web_app.Controllers
         [HttpPost]
         public IActionResult Edit(Trip body, string id, DateTime startDate, DateTime endDate)
         {
+            int daysAmount = (endDate - startDate).Days;
+
             body.User = User.Identity.Name;
             body.StartDate = startDate;
             body.EndDate = endDate;
-            int daysAmount = (endDate - startDate).Days;
+
+            var days = _plannerService.GetTripDays(Int32.Parse(id));
+
+            if (daysAmount > days.Count) 
+            {
+                for (int i = 0; i <= daysAmount - days.Count; i++)
+                {
+                    Day day = new Day();
+                    day.TripId = Int32.Parse(id);
+                    day.DayNumber = daysAmount + i;
+                    _plannerService.SaveDay(day);
+                }
+            }
+            else
+            {
+                foreach (var day in days)
+                {
+                    if (day.DayNumber > daysAmount + 1) _plannerService.DeleteDay(day.Id);
+                }
+            }
 
             if (body.Description == null) body.Description = "";
             if (!ModelState.IsValid)
