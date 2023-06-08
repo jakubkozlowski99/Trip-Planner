@@ -13,5 +13,6 @@ namespace Test_web_app.Services.Interfaces
         public void Edit(Trip trip, int id);
         public List<Day> GetTripDays(int id);
         public void DeleteDay(int id);
+        public Day GetDay(Trip trip, int dayNumber);
     }
 }

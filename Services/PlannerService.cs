@@ -88,5 +88,15 @@ namespace Test_web_app.Services
             _context.Days.Remove(day);
             _context.SaveChanges();
         }
+
+        public Day GetDay(Trip trip, int dayNumber)
+        {
+            var days = _context.Days.Where(d => d.TripId == trip.Id).ToList();
+            foreach(var day in days)
+            {
+                if (dayNumber == day.DayNumber) return day;
+            }
+            return null;
+        }
     }
 }

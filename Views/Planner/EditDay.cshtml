@@ -1,7 +1,12 @@
-﻿
+﻿@model Test_web_app.Models.Day;
+
 @{
     ViewData["Title"] = "EditDay";
 }
 
-<h1>EditDay</h1>
-
+<div class="panel add-trip container">
+    @using(Html.BeginForm("EditDay", "Planner", FormMethod.Post))
+    {
+        <h2 style="text-align:center; font-weight: 500; margin-top: 10px; opacity: 0.8;">Dzień @Model.DayNumber</h2>
+    }
+</div>

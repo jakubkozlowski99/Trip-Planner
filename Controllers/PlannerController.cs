@@ -57,7 +57,7 @@ namespace Test_web_app.Controllers
                 _plannerService.SaveDay(day);
             }
 
-            return RedirectToAction("List");
+            return RedirectToAction("EditDay", "Planner", new { @tripId = body.Id, @dayNumber = 1 });
         }
 
         public IActionResult Delete(string id)
@@ -108,12 +108,14 @@ namespace Test_web_app.Controllers
                 return View(body);
             }
             _plannerService.Edit(body, Int32.Parse(id));
-            return RedirectToAction("List");
+            return RedirectToAction("EditDay", "Planner", new {@tripId = Int32.Parse(id), @dayNumber = 1});
         }
 
-        public IActionResult EditDay(int dayNumber)
+        public IActionResult EditDay(int tripId, int dayNumber)
         {
-            return View();
+            var trip = _plannerService.Get(tripId);
+            var day = _plannerService.GetDay(trip, dayNumber);
+            return View(day);
         }
     }
 }
