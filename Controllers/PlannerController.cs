@@ -108,6 +108,7 @@ namespace Test_web_app.Controllers
                 return View(body);
             }
             _plannerService.Edit(body, Int32.Parse(id));
+
             return RedirectToAction("EditDay", "Planner", new {@tripId = Int32.Parse(id), @dayNumber = 1});
         }
 
@@ -115,7 +116,19 @@ namespace Test_web_app.Controllers
         {
             var trip = _plannerService.Get(tripId);
             var day = _plannerService.GetDay(trip, dayNumber);
+            ViewData["Activities"] = _plannerService.GetActivities(day.Id);
             return View(day);
+        }
+
+        [HttpPost]
+        public IActionResult AddActivity(string tripId, string dayId, string dayNumber)
+        {
+            var activity = new Activity();
+            activity.Cost = 1;
+            activity.Name = "";
+            activity.DayId = Int32.Parse(dayId);
+            _plannerService.SaveActivity(activity);
+            return RedirectToAction("EditDay", "Planner", new { @tripId = Int32.Parse(tripId), @dayNumber = dayNumber });
         }
     }
 }

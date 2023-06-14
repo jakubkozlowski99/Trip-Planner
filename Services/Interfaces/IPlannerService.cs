@@ -14,5 +14,6 @@ namespace Test_web_app.Services.Interfaces
         public List<Day> GetTripDays(int id);
         public void DeleteDay(int id);
         public Day GetDay(Trip trip, int dayNumber);
+        public List<Activity> GetActivities(int id);
     }
 }

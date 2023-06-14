@@ -98,5 +98,11 @@ namespace Test_web_app.Services
             }
             return null;
         }
+
+        public List<Activity> GetActivities(int id)
+        {
+            var activities = _context.Activities.Where(a => a.DayId == id).ToList();
+            return activities;
+        }
     }
 }
