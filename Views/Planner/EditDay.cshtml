@@ -9,17 +9,26 @@
 }
 
 <div class="panel add-trip container">
-    @using(Html.BeginForm("EditDay", "Planner", FormMethod.Post))
-    {
-        <h2 style="text-align:center; font-weight: 500; margin-top: 10px; opacity: 0.8;">Dzień @Model.DayNumber</h2>
-        @if (activities != null)
-            {
-            foreach(var activity in activities)
-            {
-                <span>@activity.Id</span>
-            }
-        }
+    <h2 style="text-align:center; font-weight: 500; margin-top: 10px; opacity: 0.8;">Dzień @Model.DayNumber</h2>
+    @if (activities != null)
+        {
+        foreach(var activity in activities)
+        {
+            <div>
+                <div>@activity.Name</div>
+                <div>@activity.Cost</div>
 
+            </div>
+        }
+        @using (Html.BeginForm("AddActivity", "Planner", FormMethod.Post))
+        {
+            <input type="hidden" id="tripId" name="tripId" value=@Model.TripId />
+            <input type="hidden" id="dayId" name="dayId" value=@Model.Id />
+            <input type="hidden" id="dayNumber" name="dayNumber" value=@Model.DayNumber />
+            <input id="activityName" name="activityName"/>
+            <input id="activityCost" name="activityCost"/>
+            <button class="submit" type="submit">Dodaj aktywność</button>
+        }
     }
     @using (Html.BeginForm("AddActivity", "Planner", FormMethod.Post))
     {

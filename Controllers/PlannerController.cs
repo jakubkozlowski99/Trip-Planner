@@ -121,11 +121,11 @@ namespace Test_web_app.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddActivity(string tripId, string dayId, string dayNumber)
+        public IActionResult AddActivity(string tripId, string dayId, string dayNumber, string activityName, string activityCost)
         {
             var activity = new Activity();
-            activity.Cost = 1;
-            activity.Name = "";
+            activity.Cost = Int32.Parse(activityCost);
+            activity.Name = activityName;
             activity.DayId = Int32.Parse(dayId);
             _plannerService.SaveActivity(activity);
             return RedirectToAction("EditDay", "Planner", new { @tripId = Int32.Parse(tripId), @dayNumber = dayNumber });
