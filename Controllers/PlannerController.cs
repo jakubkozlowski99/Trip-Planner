@@ -109,15 +109,19 @@ namespace Test_web_app.Controllers
             }
             _plannerService.Edit(body, Int32.Parse(id));
 
-            return RedirectToAction("EditDay", "Planner", new {@tripId = Int32.Parse(id), @dayNumber = 1});
+            return RedirectToAction("EditDay", "Planner", new {@tripId = id, @dayNumber = "1"});
         }
 
-        public IActionResult EditDay(int tripId, int dayNumber)
+        public IActionResult EditDay(string tripId, string dayNumber)
         {
-            var trip = _plannerService.Get(tripId);
-            var day = _plannerService.GetDay(trip, dayNumber);
-            ViewData["Activities"] = _plannerService.GetActivities(day.Id);
-            return View(day);
+            var trip = _plannerService.Get(Int32.Parse(tripId));
+            var day = _plannerService.GetDay(trip, Int32.Parse(dayNumber));
+            if(day != null)
+            {
+                ViewData["Activities"] = _plannerService.GetActivities(day.Id);
+                return View(day);
+            }
+            return RedirectToAction("List");
         }
 
         [HttpPost]
@@ -128,7 +132,16 @@ namespace Test_web_app.Controllers
             activity.Name = activityName;
             activity.DayId = Int32.Parse(dayId);
             _plannerService.SaveActivity(activity);
-            return RedirectToAction("EditDay", "Planner", new { @tripId = Int32.Parse(tripId), @dayNumber = dayNumber });
+            return RedirectToAction("EditDay", "Planner", new { @tripId = tripId, @dayNumber = dayNumber });
+        }
+
+        [HttpPost]
+        public IActionResult DeleteActivity(string id)
+        {
+            var activity = _plannerService.GetActivity(Int32.Parse(id));
+            var day = _plannerService.GetDayById(activity.DayId);
+            _plannerService.DeleteActivity(Int32.Parse(id));
+            return RedirectToAction("EditDay", "Planner", new { @tripId = day.TripId.ToString(), @dayNumber = day.DayNumber.ToString() });
         }
     }
 }

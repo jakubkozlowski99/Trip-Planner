@@ -89,6 +89,13 @@ namespace Test_web_app.Services
             _context.SaveChanges();
         }
 
+        public void DeleteActivity(int id)
+        {
+            var activity = _context.Activities.Find(id);
+            _context.Activities.Remove(activity);
+            _context.SaveChanges();
+        }
+
         public Day GetDay(Trip trip, int dayNumber)
         {
             var days = _context.Days.Where(d => d.TripId == trip.Id).ToList();
@@ -99,10 +106,22 @@ namespace Test_web_app.Services
             return null;
         }
 
+        public Day GetDayById(int id)
+        {
+            var day = _context.Days.Find(id);
+            return day;
+        }
+
         public List<Activity> GetActivities(int id)
         {
             var activities = _context.Activities.Where(a => a.DayId == id).ToList();
             return activities;
+        }
+
+        public Activity GetActivity(int id)
+        {
+            var activity = _context.Activities.Find(id);
+            return activity;
         }
     }
 }

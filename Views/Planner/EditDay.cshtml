@@ -8,33 +8,64 @@
     List<Activity> activities = ViewData["Activities"] as List<Activity>;
 }
 
-<div class="panel add-trip container">
-    <h2 style="text-align:center; font-weight: 500; margin-top: 10px; opacity: 0.8;">Dzień @Model.DayNumber</h2>
-    @if (activities != null)
-        {
-        foreach(var activity in activities)
-        {
-            <div>
-                <div>@activity.Name</div>
-                <div>@activity.Cost</div>
+    <head>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/Test_web_app.styles.css" asp-append-version="true" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
 
-            </div>
-        }
-        @using (Html.BeginForm("AddActivity", "Planner", FormMethod.Post))
-        {
-            <input type="hidden" id="tripId" name="tripId" value=@Model.TripId />
-            <input type="hidden" id="dayId" name="dayId" value=@Model.Id />
-            <input type="hidden" id="dayNumber" name="dayNumber" value=@Model.DayNumber />
-            <input id="activityName" name="activityName"/>
-            <input id="activityCost" name="activityCost"/>
-            <button class="submit" type="submit">Dodaj aktywność</button>
-        }
-    }
-    @using (Html.BeginForm("AddActivity", "Planner", FormMethod.Post))
-    {
-        <input type="hidden" id="tripId" name="tripId" value=@Model.TripId />
-        <input type="hidden" id="dayId" name="dayId" value=@Model.Id />
-        <input type="hidden" id="dayNumber" name="dayNumber" value=@Model.DayNumber />
-        <button class="submit" type="submit">Dodaj aktywność</button>
+<div class="panel edit-day container">
+    <h2 style="text-align:center; font-weight: 500; margin-top: 10px; opacity: 0.8; width: 100%;">Dzień @Model.DayNumber</h2>
+    
+        @if (activities != null)
+            {
+                <table>
+                    <tr>
+                        <th class="large">Tytuł</th>
+                        <th class="medium">Koszt</th>
+                        <th class="small"></th>
+                    </tr>
+                @foreach(var activity in activities)
+                {
+                    <tr>
+                        <td>@activity.Name</td>
+                        <td>@activity.Cost</td>
+                        @using(Html.BeginForm("DeleteActivity", "Planner", FormMethod.Post))
+                            {
+                                <td>
+
+                                    <button name="id" class="delete-btn-small" type="submit" value="@activity.Id">
+                                        <span class="trashcan bi bi-trash"></span>
+                                    </button>
+                                </td>
+                            }
+                    </tr>
+                }
+                </table>
+            @using (Html.BeginForm("AddActivity", "Planner", FormMethod.Post))
+            {
+                <div class="add-form-small">
+                    <input type="hidden" id="tripId" name="tripId" value=@Model.TripId />
+                    <input type="hidden" id="dayId" name="dayId" value=@Model.Id />
+                    <input type="hidden" id="dayNumber" name="dayNumber" value=@Model.DayNumber />
+                    <input class="small title" id="activityName" name="activityName" placeholder="Tytuł"/>
+                    <input class="small cost" id="activityCost" name="activityCost" placeholder="Koszt"/>
+                    <button class="add-activity" type="submit">+</button>
+                </div>
+            }
+            @using (Html.BeginForm("EditDay", "Planner", FormMethod.Post))
+            {
+                <div>
+                    <input type="hidden" id="tripId" name="tripId" value=@Model.TripId />
+                @{
+                    int dayNumber = Model.DayNumber + 1;
+                    string dayNumberString = dayNumber.ToString();
+                }
+                    <input type="hidden" id="dayNumber" name="dayNumber" value=@dayNumberString />
+                    <button class="submit bottom">Dalej</button>
+                </div>
+            }
     }
 </div>

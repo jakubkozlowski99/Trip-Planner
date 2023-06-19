@@ -32,13 +32,13 @@ div.panel {
     font-family: Montserrat;
     font-size: 15px;
     display: flex;
-    justify-content: center;
 }
 
 div.login {
     height: 400px;
     width: 300px;
     overflow: auto;
+    justify-content: center;
 }
 
 div.add-trip {
@@ -47,15 +47,27 @@ div.add-trip {
     height: 700px;
     width: 400px;
     overflow: auto;
+    justify-content: center;
+}
+
+.edit-day {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: 700px;
+    width: 500px;
+    overflow: auto;
+    flex-direction: column;
 }
 
 div.register {
     height: 450px;
     width: 300px;
+    justify-content: center;
 }
 
 div.paneltxt {
     text-align: center;
+    font-size:15px;
 }
 
 div.box {
@@ -210,12 +222,22 @@ button.delete-btn {
     left: 70%;
     transform: translate(-70%, 0);
     border: none;
-    color: red;
+    color: darkred;
     transition-duration: 0.2s;
 }
     button.delete-btn:hover {
-        color: darkred;
+        color: red;
     }
+
+.delete-btn-small {
+    background:none;
+    border: none;
+    color: darkred;
+    transition-duration: 0.2s;
+}
+.delete-btn-small:hover{
+    color:red;
+}
 
 .edit-btn {
     background-color: #222023;
@@ -274,4 +296,84 @@ button.delete-btn {
     position:relative;
     display: flex;
     align-items:center;
+}
+
+.add-form-small {
+    position: relative;
+    display:block;
+    text-align:center;
+}
+
+.activity-info{
+    position:relative;
+    display:block;
+    text-align:center;
+}
+
+table{
+    text-align:center;
+    margin-bottom: 20px;
+    margin-top: 35px;
+}
+
+th.large{
+    width: 200px;
+}
+
+th.medium{
+    width: 100px;
+}
+
+th.small{
+    width:50px;
+}
+
+td{
+    height:50px;
+}
+
+input.small {
+    margin-right: 25px;
+    margin-top: 30px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #878787;
+    opacity: 0.8;
+    text-align: center;
+}
+
+input.small:focus{
+    outline:none;
+}
+
+input.title{
+    width:210px;
+    margin-left:20px;
+}
+
+input.cost{
+    width:105px;
+    margin-right: 33px;
+}
+
+button.add-activity {
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    font-size: 25px;
+    line-height: 0px;
+    background-image: linear-gradient(to bottom right, #F8D267, #FCD56C);
+    opacity: 0.8;
+    border: none;
+    box-shadow: 0 6px 12px 0 rgba(0,0,0,.1);
+    transition-duration: 0.2s;
+}
+
+button.add-activity:hover{
+    color: white;
+}
+
+.bottom{
+    bottom: 0;
+    margin-bottom: 30px;
 }

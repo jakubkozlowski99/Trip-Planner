@@ -26,7 +26,7 @@
         @using (Html.BeginForm("Edit", "Planner", FormMethod.Post))
         {
             <input type="hidden" id="id" name="id" value=@Model.Id />
-            <h2 style="text-align:center; font-weight: 500; margin-top: 10px; opacity: 0.8;">Planowanie wycieczki</h2>
+            <h2 style="text-align:center; font-weight: 500; opacity: 0.8;">Planowanie wycieczki</h2>
             @Html.ValidationSummary()
             <div style="padding: 12px;"></div>
             <div class="paneltxt">Tytuł: </div>
