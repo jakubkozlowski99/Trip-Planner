@@ -6,6 +6,11 @@
 
 @{
     List<Activity> activities = ViewData["Activities"] as List<Activity>;
+    int cost = 0;
+    foreach(var activity in activities)
+    {
+        cost += activity.Cost;
+    }
 }
 
     <head>
@@ -44,6 +49,7 @@
                     </tr>
                 }
                 </table>
+            <span style="text-align: center; margin: 10px; position: relative;">Łączny koszt: @cost</span>
             @using (Html.BeginForm("AddActivity", "Planner", FormMethod.Post))
             {
                 <div class="add-form-small">
@@ -54,7 +60,32 @@
                     <input class="small cost" id="activityCost" name="activityCost" placeholder="Koszt"/>
                     <button class="add-activity" type="submit">+</button>
                 </div>
-            }
+        }
+        @if (Model.DayNumber != 1)
+        {
+            <div class="btns-container">
+                @using (Html.BeginForm("EditDay", "Planner", FormMethod.Post))
+                {
+                    <input type="hidden" id="tripId" name="tripId" value=@Model.TripId />
+                        int dayNumber = Model.DayNumber - 1;
+                        string dayNumberString = dayNumber.ToString();
+                    <input type="hidden" id="dayNumber" name="dayNumber" value=@dayNumberString />
+                    <button class="submit-small">Wstecz</button>
+                }
+                @using (Html.BeginForm("EditDay", "Planner", FormMethod.Post))
+                {
+                    <input type="hidden" id="tripId" name="tripId" value=@Model.TripId />
+                        int dayNumber = Model.DayNumber + 1;
+                        string dayNumberString = dayNumber.ToString();
+                    <input type="hidden" id="dayNumber" name="dayNumber" value=@dayNumberString />
+                    <button class="submit-small">Dalej</button>
+                }
+            </div>
+
+        }
+
+        @if (Model.DayNumber == 1)
+        {
             @using (Html.BeginForm("EditDay", "Planner", FormMethod.Post))
             {
                 <div>
@@ -67,5 +98,7 @@
                     <button class="submit bottom">Dalej</button>
                 </div>
             }
+        }
+        
     }
 </div>
