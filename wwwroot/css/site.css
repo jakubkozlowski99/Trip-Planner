@@ -407,15 +407,30 @@ button.add-activity:hover{
     border: none;
     box-shadow: 0 6px 12px 0 rgba(0,0,0,.1);
     transition-duration: 0.2s;
+    position: absolute;
+    display: inline-block;
+    bottom:0;
 }
 .submit-small:hover{
     color:white;
 }
 
+.right {
+    left: 80%;
+    transform: translate(-80%, 0);
+}
+
+.left{
+    left: 20%;
+    transform:translate(-20%, 0);
+}
+
 .btns-container {
     position:relative;
-    display:block;
     text-align:center;
+    justify-content:center;
     bottom: 0;
     margin-bottom: 30px;
+    height: 100%;
+    width: 100%;
 }

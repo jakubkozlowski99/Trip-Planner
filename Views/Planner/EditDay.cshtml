@@ -70,7 +70,7 @@
                         int dayNumber = Model.DayNumber - 1;
                         string dayNumberString = dayNumber.ToString();
                     <input type="hidden" id="dayNumber" name="dayNumber" value=@dayNumberString />
-                    <button class="submit-small">Wstecz</button>
+                    <button class="submit-small left">Wstecz</button>
                 }
                 @using (Html.BeginForm("EditDay", "Planner", FormMethod.Post))
                 {
@@ -78,7 +78,7 @@
                         int dayNumber = Model.DayNumber + 1;
                         string dayNumberString = dayNumber.ToString();
                     <input type="hidden" id="dayNumber" name="dayNumber" value=@dayNumberString />
-                    <button class="submit-small">Dalej</button>
+                    <button class="submit-small" right>Dalej</button>
                 }
             </div>
 
