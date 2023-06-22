@@ -61,9 +61,17 @@
                     <button class="add-activity" type="submit">+</button>
                 </div>
         }
-        @if (Model.DayNumber != 1)
-        {
-            <div class="btns-container">
+        <div class="btns-container">
+            @if (Model.DayNumber == 1)
+            {
+                @using (Html.BeginForm("Edit", "Planner", FormMethod.Get))
+                {
+                    <input type="hidden" id="id" name="id" value=@Model.TripId />
+                    <button class="submit-small left">Wstecz</button>
+                }
+            }
+            else
+            {
                 @using (Html.BeginForm("EditDay", "Planner", FormMethod.Post))
                 {
                     <input type="hidden" id="tripId" name="tripId" value=@Model.TripId />
@@ -72,33 +80,16 @@
                     <input type="hidden" id="dayNumber" name="dayNumber" value=@dayNumberString />
                     <button class="submit-small left">Wstecz</button>
                 }
-                @using (Html.BeginForm("EditDay", "Planner", FormMethod.Post))
-                {
-                    <input type="hidden" id="tripId" name="tripId" value=@Model.TripId />
-                        int dayNumber = Model.DayNumber + 1;
-                        string dayNumberString = dayNumber.ToString();
-                    <input type="hidden" id="dayNumber" name="dayNumber" value=@dayNumberString />
-                    <button class="submit-small" right>Dalej</button>
-                }
-            </div>
-
-        }
-
-        @if (Model.DayNumber == 1)
-        {
+            }
             @using (Html.BeginForm("EditDay", "Planner", FormMethod.Post))
             {
-                <div>
-                    <input type="hidden" id="tripId" name="tripId" value=@Model.TripId />
-                @{
+                <input type="hidden" id="tripId" name="tripId" value=@Model.TripId />
                     int dayNumber = Model.DayNumber + 1;
                     string dayNumberString = dayNumber.ToString();
-                }
-                    <input type="hidden" id="dayNumber" name="dayNumber" value=@dayNumberString />
-                    <button class="submit bottom">Dalej</button>
-                </div>
+                <input type="hidden" id="dayNumber" name="dayNumber" value=@dayNumberString />
+                <button class="submit-small" right>Dalej</button>
             }
-        }
-        
+        </div>
+
     }
 </div>
